@@ -11,34 +11,23 @@ cd docker-moodle-mysql
 docker build -t moodle .
 ```
 
-## Usage
-
-To spawn a new instance of Moodle:
-
+## Lancement du container Mysql sur le HOST2 :
 ```
-docker run --name moodle1 -e VIRTUAL_HOST=moodle.domain.com -d -t -p 80 -p 22 moodle
-```
-
-You can visit the following URL in a browser to get started:
-
-```
-http://moodle.domain.com/moodle
-```
-
-Thanks to [eugeneware](https://github.com/eugeneware) and [ricardoamaro](https://github.com/ricardoamaro) for their Dockerfiles.
-
-Lancement du container Mysql sur le HOST2 :
 docker run -d --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DATABASE=moodle mysql
-########
-Lancement du container Ambassador sur le HOST2 :
+```
+## Lancement du container Ambassador sur le HOST2 :
+```
 docker run -d --link db:db --name moodle_ambassador -p 3306:3306 svendowideit/ambassador
-########
-Lancement du container Ambassador sur le HOST1 :
+```
+## Lancement du container Ambassador sur le HOST1 :
+```
 docker run -d --name moodle_ambassador --expose 3306 -e DB_PORT_3306_TCP=tcp://10.203.0.84:3306 svendowideit/ambassador
-########
-Voir les variables dans le container mysql_ambassador sur le HOST2 :
+```
+## Voir les variables dans le container mysql_ambassador sur le HOST2 :
+```
 docker exec -it moodle_ambassador env
-########
-Création et lancement du container moodle sur le HOST1 :
+```
+## Création et lancement du container moodle sur le HOST1 :
+```
 docker run -d -p 80:80 --name moodle --link moodle_ambassador:db -e MOODLE_DB_HOST=db -e MOODLE_DB_USER=root -e MOODLE_DB_PASSWORD=root -e MOODLE_DB_NAME=moodle moodle
-########
+```
