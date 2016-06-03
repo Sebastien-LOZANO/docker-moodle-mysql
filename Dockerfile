@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 MAINTAINER Sebastien LOZANO <sebastien.lozano.34@gmail.com>
 
 # Keep upstart from complaining
