@@ -25,5 +25,5 @@ docker exec -it moodle_ambassador env
 ```
 ## Création et lancement du container moodle sur le HOST1 :
 ```
-docker run --name moodle --link moodle_ambassador:db -e MOODLE_DB_HOST=db -e MOODLE_DB_USER=root -e MOODLE_DB_PASSWORD=root -e MOODLE_DB_NAME=moodle -d -t -p 80 -p 22 Sebastien-LOZANO/docker-moodle_mysql
+docker run --name moodle --link moodle_ambassador:db -e MOODLE_DB_HOST=db -e MOODLE_DB_USER=root -e MOODLE_DB_PASSWORD=root -e MOODLE_DB_NAME=moodle -d -t -p 80 -p 22 Sebastien-LOZANO/docker-moodle-mysql
 ```
