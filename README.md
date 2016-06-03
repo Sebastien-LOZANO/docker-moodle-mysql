@@ -1,16 +1,12 @@
-docker-moodle
+docker-moodle-mysql
 =============
 
-A Dockerfile that installs the latest Moodle, Apache, PHP, MySQL and SSH
-
 ## Installation
-
 ```
 git clone https://github.com/Sebastien-LOZANO/docker-moodle-mysql.git
 cd docker-moodle-mysql
 docker build -t moodle .
 ```
-
 ## Lancement du container Mysql sur le HOST2 :
 ```
 docker run -d --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DATABASE=moodle mysql
